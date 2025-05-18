@@ -9,6 +9,15 @@ defmodule Tunez.Music do
         post :create
         patch :update
         delete :destroy
+
+        # enable endpoint http://localhost:4000/api/json/artists/[id]/albums
+        related :albums, :read, primary?: true
+      end
+
+      base_route "/albums", Tunez.Music.Album do
+        post :create
+        patch :update
+        delete :destroy
       end
     end
   end
